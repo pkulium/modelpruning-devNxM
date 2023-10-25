@@ -1,0 +1,301 @@
+{
+    "compression_types": {
+        "key": [
+            {
+                "type": "NxM",
+                "args": {
+                    "N": 4,
+                    "M": 2
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            }
+        ],
+        "query": [
+            {
+                "type": "NxM",
+                "args": {
+                    "N": 4,
+                    "M": 2
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            }
+        ],
+        "value": [
+            {
+                "type": "NxM",
+                "args": {
+                    "N": 4,
+                    "M": 2
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            }
+        ],
+        "attention_output": [
+            {
+                "type": "NxM",
+                "args": {
+                    "N": 4,
+                    "M": 2
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            }
+        ],
+        "intermediate": [
+            {
+                "type": "NxM",
+                "args": {
+                    "N": 4,
+                    "M": 2
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            }
+        ],
+        "output": [
+            {
+                "type": "NxM",
+                "args": {
+                    "N": 4,
+                    "M": 2
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "MOD_QUANT",
+                "args": {
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 8,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            },
+            {
+                "type": "NxM_MOD_QUANT",
+                "args": {
+                    "N": 4,
+                    "M": 2,
+                    "precision": 4,
+                    "norm": 2,
+                    "chunk_size": 32,
+                    "groups": 1
+                }
+            }
+        ]
+    },
+    "hidden": 768,
+    "intermediate": 3072,
+    "target_ratio": 0.125
+}

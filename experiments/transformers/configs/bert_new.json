@@ -1,0 +1,11 @@
+{
+    "bert.encoder.layer.2.attention.self.query" : {
+        "type": "NxM",
+        "args": {
+            "precision": 8,
+            "norm": 2,
+            "N" : 4,
+            "M": 2
+        }
+    }
+}

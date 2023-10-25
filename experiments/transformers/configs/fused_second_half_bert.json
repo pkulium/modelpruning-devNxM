@@ -1,0 +1,398 @@
+{
+    "bert.encoder.layer.6.attention.self.key": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.6.attention.self.value": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.6.attention.self.query": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.6.attention.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.6.intermediate.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.6.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.7.attention.self.key": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.7.attention.self.value": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.7.attention.self.query": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.7.attention.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.7.intermediate.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.7.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.8.attention.self.key": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.8.attention.self.value": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.8.attention.self.query": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.8.attention.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.8.intermediate.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.8.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.9.attention.self.key": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.9.attention.self.value": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.9.attention.self.query": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.9.attention.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.9.intermediate.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.9.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.10.attention.self.key": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.10.attention.self.value": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.10.attention.self.query": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.10.attention.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.10.intermediate.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.10.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.11.attention.self.key": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.11.attention.self.value": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.11.attention.self.query": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.11.attention.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.11.intermediate.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    },
+    "bert.encoder.layer.11.output.dense": {
+        "type": "NxM_QUANT",
+        "args": {
+            "N": 4,
+            "M": 2,
+            "precision": 8,
+            "norm": 2,
+            "chunk_size": -1,
+            "groups": 1
+        }
+    }
+}

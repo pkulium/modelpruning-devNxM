@@ -1,0 +1,10 @@
+__pycache__/
+.vscode/
+
+AdmmDS.egg-info/**
+build/**
+dist/**
+experiments/transformers/scripts/logs/**
+experiments/transformers_search/output/**
+*.pyc
+
