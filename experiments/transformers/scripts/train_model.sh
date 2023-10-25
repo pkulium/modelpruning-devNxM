@@ -22,6 +22,8 @@ do
             --save_steps 30000 \
             --logging_steps 1000 \
             --overwrite_output_dir \
-            --output_dir /scratch/admm_ds/v2/base_checkpoints/$TASK_NAME/
+            --output_dir ./base_checkpoints/$TASK_NAME/
+            # --output_dir ./scratch/admm_ds/v2/base_checkpoints/$TASK_NAME/
     done
+    
 done
