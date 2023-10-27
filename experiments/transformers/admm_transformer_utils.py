@@ -62,7 +62,7 @@ class ADMMArguments:
     """
 
     do_compression: bool = field(
-        default=True,
+        default=False,
         metadata={"help": "Whether to perform pruning"}
     )
     admm_config: str = field(
