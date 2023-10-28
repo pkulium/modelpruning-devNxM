@@ -1,3 +1,4 @@
+git pull
 TASK_NAME=cola
 MODEL=/scratch/admm_ds/v2/base_checkpoints/$TASK_NAME/
 EXPERIMENT_NAME="exclude_10_epoch_random_sweep"
