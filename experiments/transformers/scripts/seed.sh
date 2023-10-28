@@ -2,7 +2,7 @@ TASK_NAME=cola
 MODEL=/scratch/admm_ds/v2/base_checkpoints/$TASK_NAME/
 EXPERIMENT_NAME="exclude_10_epoch_random_sweep"
 
-RANDOM_SEEDS=("1" "8" "13" "32" "42" "81" "101" "640" "1138" "9000")
+RANDOM_SEEDS=("1")
 
 DEVICE=0
 LEARNING_RATE="7e-5"
