@@ -64,6 +64,10 @@ class ADMMArguments:
         default=False,
         metadata={"help": "Whether to perform pruning non-ADMM based training."}
     )
+    do_admm: bool = field(
+        default=True,
+        metadata={"help": "Whether to perform pruning"}
+    )
 
 
 logger = logging.getLogger(__name__)
