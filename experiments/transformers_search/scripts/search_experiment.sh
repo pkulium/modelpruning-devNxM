@@ -3,7 +3,8 @@ EXPERIMENT_CONFIG="../configs/base_config.json"
 TOP_K=5
 TASK_NAME="mrpc"
 DEVICE=0
-MODEL="/work/LAS/wzhang-lab/mingl/code/lora/modelpruning-devNxM/experiments/transformers/scripts/base_checkpoints/rte"
+# MODEL="/work/LAS/wzhang-lab/mingl/code/lora/modelpruning-devNxM/experiments/transformers/scripts/base_checkpoints/rte"
+MODEL="bert-base-uncased"
 
 CUDA_VISIBLE_DEVICES=$DEVICE python ../search_experiment_candidates.py \
     --task_name $TASK_NAME \
