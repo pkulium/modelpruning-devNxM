@@ -72,7 +72,6 @@ for TASK_NAME in ${TASK_NAMES[*]}
                 --num_train_epochs 10.0 \
                 --save_steps 100000 \
                 --logging_steps 2000 \
-                --do_compression \
                 --admm_config ${CONFIG} \
                 --overwrite_output_dir \
                 --output_dir $HOME/output/$EXPERIMENT_NAME/$TASK_NAME/asp/${LEARNING_RATE}_${ADMM_RHO}_${BATCH_SIZE}/
