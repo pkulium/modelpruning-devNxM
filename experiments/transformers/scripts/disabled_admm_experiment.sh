@@ -10,7 +10,8 @@ CONFIG="../configs/admm_disabled/nxm_uniform.json"
 
 for TASK_NAME in ${TASK_NAMES[*]}
     do
-    MODEL=$HOME/$TASK_NAME/
+    # MODEL=$HOME/$TASK_NAME/
+    MODEL=bert-base-uncased
 
     for LEARNING_RATE in ${LEARNING_RATES[*]}
     do
