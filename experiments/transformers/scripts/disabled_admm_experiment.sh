@@ -73,7 +73,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
                 --save_steps 100000 \
                 --logging_steps 2000 \
                 --do_compression \
-                --disable_admm \
+                --do_admm \
                 --admm_config ${CONFIG} \
                 --overwrite_output_dir \
                 --output_dir $HOME/output/$EXPERIMENT_NAME/$TASK_NAME/asp/${LEARNING_RATE}_${ADMM_RHO}_${BATCH_SIZE}/
