@@ -48,7 +48,7 @@ ADMM_RHOS=("1e-3")
 BATCH_SIZES=("16")
 INT_QUANT=4
 CHUNK_SIZE=64
-CONFIG="../configs/admm_disabled/nxm_uniform.json"
+CONFIG="../configs/uniform_nxm_bert.json"
 
 for TASK_NAME in ${TASK_NAMES[*]}
     do
@@ -73,7 +73,6 @@ for TASK_NAME in ${TASK_NAMES[*]}
                 --save_steps 100000 \
                 --logging_steps 2000 \
                 --do_compression \
-                --do_admm \
                 --admm_config ${CONFIG} \
                 --overwrite_output_dir \
                 --output_dir $HOME/output/$EXPERIMENT_NAME/$TASK_NAME/asp/${LEARNING_RATE}_${ADMM_RHO}_${BATCH_SIZE}/
