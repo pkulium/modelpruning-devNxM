@@ -189,6 +189,7 @@ class ADMMTrainer(Trainer):
             callbacks=callbacks,
             optimizers=optimizers
         )
+        self.use_amp = False
 
     def _wrap_model(self, model, training=True):
         # Ignoring additional features for now. Will build back in later if necessary to do
