@@ -40,7 +40,8 @@
 # done
 
 
-TASK_NAMES=("stsb" "cola" "qnli" "sst2" "qqp" "mnli")
+# TASK_NAMES=("stsb" "cola" "qnli" "sst2" "qqp" "mnli")
+TASK_NAMES=("stsb" )
 EXPERIMENT_NAME="test_disabled"
 DEVICE=0
 LEARNING_RATES=("5e-5")
@@ -67,7 +68,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
                 --per_device_train_batch_size=$BATCH_SIZE \
                 --gradient_accumulation_steps=1 \
                 --learning_rate $LEARNING_RATE \
-                --num_train_epochs 500.0 \
+                --num_train_epochs 100.0 \
                 --save_steps 100000 \
                 --logging_steps 2000 \
                 --admm_config ${CONFIG} \
