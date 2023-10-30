@@ -385,7 +385,7 @@ def main():
         metrics = train_result.metrics
 
         trainer.save_model()  # Saves the tokenizer too for easy upload
-        print(model)
+
         output_train_file = os.path.join(training_args.output_dir, "train_results.txt")
         if trainer.is_world_process_zero():
             with open(output_train_file, "w") as writer:

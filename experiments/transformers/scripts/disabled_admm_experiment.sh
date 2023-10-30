@@ -40,14 +40,12 @@
 # done
 
 
-TASK_NAMES=("stsb" )
+TASK_NAMES=("stsb" "cola" "qnli" "sst2" "qqp" "mnli")
 EXPERIMENT_NAME="test_disabled"
 DEVICE=0
 LEARNING_RATES=("5e-5")
 ADMM_RHOS=("1e-3")
 BATCH_SIZES=("16")
-INT_QUANT=4
-CHUNK_SIZE=64
 CONFIG="../configs/uniform_nxm_bert.json"
 
 for TASK_NAME in ${TASK_NAMES[*]}
