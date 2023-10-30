@@ -58,7 +58,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
     do
         for BATCH_SIZE in ${BATCH_SIZES[*]}
         do
-            CUDA_VISIBLE_DEVICES=$DEVICE python -m pdb ../run_glue_admm.py \
+            CUDA_VISIBLE_DEVICES=$DEVICE python ../run_glue_admm.py \
                 --task_name $TASK_NAME \
                 --model_name_or_path $MODEL \
                 --do_train \
