@@ -73,7 +73,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
                 --logging_steps 2000 \
                 --admm_config ${CONFIG} \
                 --overwrite_output_dir \
-                --output_dir $HOME/output/$EXPERIMENT_NAME/$TASK_NAME/asp/${LEARNING_RATE}_${ADMM_RHO}_${BATCH_SIZE}/
+                --output_dir ./output/$EXPERIMENT_NAME/$TASK_NAME/asp/${LEARNING_RATE}_${ADMM_RHO}_${BATCH_SIZE}/
         done
     done
 done
