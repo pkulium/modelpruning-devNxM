@@ -52,13 +52,13 @@ CONFIG="../configs/uniform_nxm_bert.json"
 for TASK_NAME in ${TASK_NAMES[*]}
     do
     # MODEL=$HOME/$TASK_NAME/
-    MODEL="/work/LAS/wzhang-lab/mingl/code/lora/modelpruning-devNxM/experiments/transformers/scripts/output/test_disabled/stsb/5e-5__16"
+    MODEL="bert-base-cased"
 
     for LEARNING_RATE in ${LEARNING_RATES[*]}
     do
         for BATCH_SIZE in ${BATCH_SIZES[*]}
         do
-            CUDA_VISIBLE_DEVICES=$DEVICE python -m pdb ../run_glue_admm.py \
+            CUDA_VISIBLE_DEVICES=$DEVICE python ../run_glue_admm.py \
                 --task_name $TASK_NAME \
                 --model_name_or_path $MODEL \
                 --do_train \
