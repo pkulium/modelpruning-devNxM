@@ -69,6 +69,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
                 --gradient_accumulation_steps=1 \
                 --learning_rate $LEARNING_RATE \
                 --num_train_epochs 5 \
+                --do_compression \
                 --save_steps 100000 \
                 --logging_steps 2000 \
                 --admm_config ${CONFIG} \
