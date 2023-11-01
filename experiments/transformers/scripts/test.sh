@@ -39,7 +39,7 @@
 #     done
 # done
 
-
+git pull
 # TASK_NAMES=("stsb" "cola" "qnli" "sst2" "qqp" "mnli")
 TASK_NAMES=("rte")
 EXPERIMENT_NAME="nxm_bert"
