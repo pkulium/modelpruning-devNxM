@@ -46,7 +46,7 @@ EXPERIMENT_NAME="nxm_bert"
 DEVICE=0
 LEARNING_RATES=("5e-5" "7e-5" "1e-4")
 ADMM_RHOS=("1e-3" "4e-3" "1e-2")
-BATCH_SIZES=("16")
+BATCH_SIZE=32
 CONFIG="../configs/uniform_nxm_bert.json"
 
 for TASK_NAME in ${TASK_NAMES[*]}
@@ -56,7 +56,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
 
     for LEARNING_RATE in ${LEARNING_RATES[*]}
     do
-        for BATCH_SIZE in ${BATCH_SIZES[*]}
+        for ADMM_RHO in $ADMM_RHOS{[*]}
         do
             CUDA_VISIBLE_DEVICES=$DEVICE python ../run_glue_admm.py \
                 --task_name $TASK_NAME \
