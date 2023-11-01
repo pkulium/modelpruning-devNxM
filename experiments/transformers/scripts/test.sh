@@ -46,7 +46,7 @@ EXPERIMENT_NAME="nxm_bert"
 DEVICE=0
 LEARNING_RATES=("1e-4")
 # ADMM_RHOS=("1e-2")
-ADMM_RHO="3e-3"
+ADMM_RHO="1e-2"
 BATCH_SIZES=("32")
 CONFIG="../configs/uniform_nxm_bert.json"
 
