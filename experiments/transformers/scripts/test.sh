@@ -56,7 +56,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
 
     for LEARNING_RATE in ${LEARNING_RATES[*]}
     do
-        for ADMM_RHO in $ADMM_RHOS{[*]}
+        for ADMM_RHO in ${ADMM_RHOS[*]}
         do
             CUDA_VISIBLE_DEVICES=$DEVICE python ../run_glue_admm.py \
                 --task_name $TASK_NAME \
