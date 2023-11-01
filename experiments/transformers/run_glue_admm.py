@@ -399,8 +399,10 @@ def main():
 
     # Model should be sparse if we used ADMM for a sparse fine-tune, so it shouldn't be necessary
     # to sparsify again.
+    print(model.bert.encoder.layer[2].attention.self.query.weight)
     if admm_arguments.do_compression:
         trainer.hard_prune(training_args.output_dir)
+    print(model.bert.encoder.layer[2].attention.self.query.weight)
 
     # Evaluation
     eval_results = {}
