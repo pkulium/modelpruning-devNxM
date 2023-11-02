@@ -253,7 +253,6 @@ def main():
 
     import loralib as lora
     lora.mark_only_lora_as_trainable(model)
-    model.print_trainable_parameters() # see % trainable parameters
 
     # Preprocessing the datasets
     if data_args.task_name is not None:
