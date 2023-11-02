@@ -249,21 +249,10 @@ def main():
         revision=model_args.model_revision,
         use_auth_token=True if model_args.use_auth_token else None,
     )
-    
 
-    from peft import LoraConfig, get_peft_model, TaskType
-    # Define LoRA Config
-    lora_config = LoraConfig(
-        r=16,
-        lora_alpha=32,
-        target_modules=["query", "value"],
-        lora_dropout=0.05,
-        bias="none",
-        task_type=TaskType.SEQ_CLS, # this is necessary
-        inference_mode=True
-    )
-    # add LoRA adaptor
-    model = get_peft_model(model, lora_config)
+
+    import loralib as lora
+    lora.mark_only_lora_as_trainable(model)
     model.print_trainable_parameters() # see % trainable parameters
 
     # Preprocessing the datasets
