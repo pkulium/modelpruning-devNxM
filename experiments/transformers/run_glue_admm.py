@@ -102,6 +102,64 @@ class DataTrainingArguments:
                 validation_extension == train_extension
             ), "`validation_file` should have the same extension (csv or json) as `train_file`."
 
+import lora_custom
+import torch.nn as nn
+def make_lora_layer(layer, lora_r=16):
+    new_layer = lora_custom.Linear(
+        in_features=layer.in_features,
+        out_features=layer.out_features,
+        bias=layer.bias is None,
+        r=lora_r,
+        merge_weights=False
+    )
+    
+    new_layer.weight = nn.Parameter(layer.weight.detach())
+    
+    if layer.bias is not None:
+        new_layer.bias = nn.Parameter(layer.bias.detach())
+    
+    return new_layer
+
+def make_lora_replace(model, depth=1, path="", verbose=True):
+    if depth > 10:
+        return
+    depth += 1
+        
+    if isinstance(model, nn.Linear) and "attention" in path:
+        if verbose:
+            print(f"Find linear {path}:{key} :", type(module))
+
+        return make_lora_layer(model)
+    
+    for key in dir(model):
+        module = getattr(model, key)
+        module_type = type(module)
+            
+        if not isinstance(module, nn.Module) or module is model:
+            continue
+
+        if isinstance(module, nn.Linear) and "attention" in path:
+            layer = make_lora_layer(module)
+            setattr(model, key, layer)
+            if verbose:
+                print(f"Find linear {path}:{key} :", type(module))
+            
+        elif isinstance(module, nn.ModuleList):
+            for i, elem in enumerate(module):
+                layer = make_lora_replace(elem, depth, path+":"+key+f"[{i}]", verbose=verbose)
+                if layer is not None:
+                    module[i] = layer
+                
+        elif isinstance(module, nn.ModuleDict):
+            for module_key in list(module.keys()):
+                layer = make_lora_replace(item, depth, path+":"+key+":"+module_key, verbose=verbose)
+                if layer is not None:
+                    module[module_key] = layer
+                
+        else:
+            layer = make_lora_replace(module, depth, path+":"+key, verbose=verbose)
+            if layer is not None:
+                setattr(model, key, layer)
 
 def main():
     # See all possible arguments in src/transformers/training_args.py
@@ -249,10 +307,16 @@ def main():
         revision=model_args.model_revision,
         use_auth_token=True if model_args.use_auth_token else None,
     )
+    
+    make_lora_replace(model, verbose=True)
+    total_trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(f"Total trainable parameters before LoRA: {total_trainable_params}")
 
+    ## Apply LoRA
+    lora_custom.mark_only_lora_as_trainable(model)
 
-    import loralib as lora
-    lora.mark_only_lora_as_trainable(model)
+    total_trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(f"Total trainable parameters after LoRA: {total_trainable_params}")
 
     # Preprocessing the datasets
     if data_args.task_name is not None:
