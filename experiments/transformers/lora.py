@@ -49,3 +49,14 @@ bert_peft_trainer = Trainer(
     compute_metrics=compute_metrics,
 )
 bert_peft_trainer.train()
+bert_peft_trainer.model.save_pretrained("bert-peft")
+                                        
+# from peft import PeftModel
+# original_model = AutoModelForSequenceClassification.from_pretrained(
+#   model.config["_name_or_path"]
+# )
+# original_with_adapter = PeftModel.from_pretrained(
+#   original_model, "bert-peft" # bert-peft; the folder of the saved adapter
+# )
+# merged_model = original_with_adapter.merge_and_unload()
+# merged_model.save_pretrained("merged-model")
