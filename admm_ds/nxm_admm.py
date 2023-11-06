@@ -10,7 +10,7 @@ from admm_ds.quantization_utils import (
     load_quantization_config,
     quantizeSymmetricSimple
 )
-from .admm_projection import ADMMFCLProjection, ADMMQuantizedFCLProjection
+from .admm_projection import ADMMFCLProjection, ADMMQuantizedFCLProjection, ADMMFCLProjection_Lora
 from .nxm_utils import (
     add_nxm_config,
     maskNxM,
@@ -38,6 +38,42 @@ class NxMProjection(ADMMFCLProjection):
     def project(self) -> None:
         with torch.no_grad():
             values = self._module.weight.data + self._u
+            scores = values.abs()
+
+            mask = maskNxM(scores, self._n, self._m)
+            self._z = mask * values
+
+    @classmethod
+    def createConfig(cls, n: int, m: int) -> Dict:
+        from admm_ds.compression_configurations import TransformerADMMConfig
+
+        return TransformerADMMConfig.buildEntry(
+            cls,
+            add_nxm_config({}, n=n, m=m)
+        )
+
+    @staticmethod
+    def compression_ratio(compression_args: Dict) -> float:
+        n, m = load_nxm_config(compression_args, logger)
+        return (float(m) * float(16 + 2)) / (float(n) * float(32))
+
+class NxMProjection_Lora(ADMMFCLProjection_Lora):
+    """
+    Projection handler for N:M semi-structured pruning on fully-connected layers.
+    """
+    ProjectionName = "NxM_Lora"
+
+    def __init__(self,
+                 model: torch.nn.Module,
+                 targeted_module: str,
+                 compression_args: Dict) -> None:
+        super(NxMProjection_Lora, self).__init__(model, targeted_module, compression_args)
+
+        self._n, self._m = load_nxm_config(compression_args, logger)
+
+    def project(self) -> None:
+        with torch.no_grad():
+            values = self._module.weight.data + self._module.lora_A.weight.data + self._module.lora_.weight.data + self._u
             scores = values.abs()
 
             mask = maskNxM(scores, self._n, self._m)

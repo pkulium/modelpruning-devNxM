@@ -151,7 +151,7 @@ def make_lora_replace(model, depth=1, path="", verbose=True):
                     module[i] = layer
                 
         elif isinstance(module, nn.ModuleDict):
-            for module_key in list(module.keys()):
+            for module_key, item in module.items():
                 layer = make_lora_replace(item, depth, path+":"+key+":"+module_key, verbose=verbose)
                 if layer is not None:
                     module[module_key] = layer

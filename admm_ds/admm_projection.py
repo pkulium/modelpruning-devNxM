@@ -169,6 +169,70 @@ class ADMMFCLProjection(ADMMProjection):
         assert(self._u.device == self._module.weight.device)
 
 
+class ADMMFCLProjection_Lora(ADMMProjection):
+    """
+    Partial specialization of ADMMProjection for fully-connected layers.
+
+    This class assumes torch.nn.Linear is the target module, or more broadly,
+    that their is a fully-connected layer module with the weight attribute
+    pointing to the parameter matrix.
+    """
+
+    _u: torch.Tensor
+    _z: torch.Tensor
+    _cached_weight: torch.Tensor
+
+    @abstractmethod
+    def __init__(self, model: torch.nn.Module, targeted_module: str, compression_args: Dict) -> None:
+        super(ADMMFCLProjection, self).__init__(model, targeted_module, compression_args)
+
+        self._cached_weight = self._module.weight.data.detach().cpu()
+        # The _like calls are more readable for now, but if/when we move to mixed precision
+        # training this assumption will need to be revisited.
+        self._u = torch.zeros_like(self._module.weight.data)
+        self._z = torch.empty_like(self._module.weight.data)
+
+    def loss(self) -> torch.Tensor:
+        return torch.linalg.norm(self._module.weight + self._module.lora_B.weight @ self._module.lora_A.weight - (self._z - self._u), "fro") ** 2
+
+    def update_u(self) -> None:
+        self._u = self._module.weight.data + self._module.lora_B.weight.data @ self._module.lora_A.weight.data - self._z + self._u
+
+    def prune_module(self) -> None:
+        # Cache ADMM variables, they will be destroyed by the projection
+        cached_u = self._u
+        cached_z = self._z
+        self._u = torch.zeros_like(self._u)
+
+        self.project()
+
+        # Save weight and update actual module
+        self._cached_weight = self._module.weight
+        self._module.weight.data = self._z
+        self._module.disabled = True
+
+        # Restore cached ADMM variables
+        self._u = cached_u
+        self._z = cached_z
+
+        cached_u = None
+        cached_z = None
+
+    def restore_module(self) -> None:
+        self._module.weight.data = self._cached_weight
+        self._module.disabled = False
+
+    def get_parameters_for_training(self) -> List[torch.Tensor]:
+        return super().get_parameters_for_training()
+
+    def match_parameter_device(self):
+        if self._u.device != self._module.weight.device:
+            self._u = self._u.to(device=self._module.weight.device)
+        if self._z.device != self._module.weight.device:
+            self._z = self._z.to(device=self._module.weight.device)
+        assert(self._z.device == self._module.weight.device)
+        assert(self._u.device == self._module.weight.device)
+
 class ADMMQuantizedFCLProjection(ADMMFCLProjection):
     """
     Partial specialization of ADMMFCLProjection to handle when the compression scheme needs

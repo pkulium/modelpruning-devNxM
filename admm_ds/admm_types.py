@@ -9,9 +9,10 @@ from typing import Dict
 from .admm_projection import ADMMProjection
 from .nxm_admm import (
     NxMProjection,
+    NxMProjection_Lora,
     NxMQuantizedProjection,
     NxMModifiedQuantizedProjection,
-    NxMSTEQuantizedProjection
+    NxMSTEQuantizedProjection,
 )
 from .quantized_admm import (
     SymmetricQuantizedProjection,
@@ -29,6 +30,7 @@ from .admm_disabled_projection import (
 
 ADMM_TYPES: Dict[str, ADMMProjection] = {
     NxMProjection.ProjectionName: NxMProjection,
+    NxMProjection_Lora.ProjectionName:NxMProjection_Lora,
     SymmetricQuantizedProjection.ProjectionName: SymmetricQuantizedProjection,
     SymmetricModifiedQuantizedProjection.ProjectionName: SymmetricMaskedQuantizedProjection,
     NxMQuantizedProjection.ProjectionName: NxMQuantizedProjection,

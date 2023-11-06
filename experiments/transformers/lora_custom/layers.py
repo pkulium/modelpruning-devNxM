@@ -115,6 +115,7 @@ class Linear(nn.Linear, LoRALayer):
         self.reset_parameters()
         if fan_in_fan_out:
             self.weight.data = self.weight.data.transpose(0, 1)
+        self.disabled = False
 
     def reset_parameters(self):
         nn.Linear.reset_parameters(self)
@@ -144,6 +145,8 @@ class Linear(nn.Linear, LoRALayer):
     def forward(self, x: torch.Tensor):
         def T(w):
             return w.transpose(0, 1) if self.fan_in_fan_out else w
+        if self.disabled:
+            return F.linear(x, T(self.weight), bias=self.bias)  
         if self.r > 0 and not self.merged:
             result = F.linear(x, T(self.weight), bias=self.bias)            
             result += (self.lora_dropout(x) @ self.lora_A.transpose(0, 1) @ self.lora_B.transpose(0, 1)) * self.scaling
