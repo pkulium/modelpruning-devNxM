@@ -49,7 +49,7 @@ BATCH_SIZE="32"
 # ADMM_RHOS=("1e-3" "4e-3" "1e-2")
 LEARNING_RATES=("1e-4")
 ADMM_RHOS=("4e-3")
-CONFIG="../configs/uniform_nxm_bert.json"
+CONFIG="../configs/uniform_nxm_bert_lora.json"
 
 for TASK_NAME in ${TASK_NAMES[*]}
     do
