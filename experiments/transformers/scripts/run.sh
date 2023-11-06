@@ -40,6 +40,9 @@
 # done
 
 git pull
+cd ../../../
+/work/LAS/wzhang-lab/mingl/.conda/envs/fs/bin/python -m pip install  -e .
+cd experiments/transformers/scripts/
 # TASK_NAMES=("stsb" "cola" "qnli" "sst2" "qqp" "mnli")
 TASK_NAMES=("rte")
 EXPERIMENT_NAME="nxm_bert"
