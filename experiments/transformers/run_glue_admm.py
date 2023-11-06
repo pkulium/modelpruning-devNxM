@@ -125,7 +125,8 @@ def make_lora_replace(model, depth=1, path="", verbose=True):
         return
     depth += 1
         
-    if isinstance(model, nn.Linear) and "attention" in path:
+    # if isinstance(model, nn.Linear) and "attention" in path:
+    if isinstance(model, nn.Linear) and "layer" in path:
         if verbose:
             print(f"Find linear {path}:{key} :", type(module))
 
