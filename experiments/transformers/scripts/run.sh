@@ -82,7 +82,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
                 --admm_config ${CONFIG} \
                 --rho $ADMM_RHO \
                 --overwrite_output_dir \
-                --output_dir ./output/$EXPERIMENT_NAME/$TASK_NAME/${LEARNING_RATE}_${ADMM_RHO}_${BATCH_SIZE}/
+                --output_dir ./output_lora/$EXPERIMENT_NAME/$TASK_NAME/${LEARNING_RATE}_${ADMM_RHO}_${BATCH_SIZE}/
         done
     done
 done
