@@ -46,14 +46,15 @@ git pull
 # cd experiments/transformers/scripts/
 
 # TASK_NAMES=("stsb" "cola" "qnli" "sst2" "qqp" "mnli")
+# LEARNING_RATES=("1e-4")
+# ADMM_RHOS=("4e-3")
+
 TASK_NAMES=("rte")
 EXPERIMENT_NAME="nxm_bert"
 DEVICE=0
 BATCH_SIZE="32"
-LEARNING_RATES=("5e-5" "7e-5" "1e-4")
-ADMM_RHOS=("1e-3" "4e-3" "1e-2")
-# LEARNING_RATES=("1e-4")
-# ADMM_RHOS=("4e-3")
+LEARNING_RATES=("4e-4" "8e-4" "1e-4" "4e-5" "8e-5" "1e-5")
+ADMM_RHOS=("1e-4" "1e-3" "1e-2" "1e-1")
 CONFIG="../configs/uniform_nxm_bert_lora.json"
 
 for TASK_NAME in ${TASK_NAMES[*]}
@@ -75,7 +76,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
                 --per_device_train_batch_size=$BATCH_SIZE \
                 --gradient_accumulation_steps=1 \
                 --learning_rate $LEARNING_RATE \
-                --num_train_epochs 10 \
+                --num_train_epochs 25 \
                 --do_compression \
                 --save_steps 100000 \
                 --logging_steps 2000 \
