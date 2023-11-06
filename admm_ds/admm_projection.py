@@ -193,10 +193,10 @@ class ADMMFCLProjection_Lora(ADMMProjection):
         self._z = torch.empty_like(self._module.weight.data)
 
     def loss(self) -> torch.Tensor:
-        return torch.linalg.norm(self._module.weight + self._module.lora_B.weight @ self._module.lora_A.weight - (self._z - self._u), "fro") ** 2
+        return torch.linalg.norm(self._module.weight + self._module.lora_B @ self._module.lora_A - (self._z - self._u), "fro") ** 2
 
     def update_u(self) -> None:
-        self._u = self._module.weight.data + self._module.lora_B.weight.data @ self._module.lora_A.weight.data - self._z + self._u
+        self._u = self._module.weight.data + self._module.lora_B.data @ self._module.lora_A.data - self._z + self._u
 
     def prune_module(self) -> None:
         # Cache ADMM variables, they will be destroyed by the projection
