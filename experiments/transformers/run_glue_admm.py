@@ -162,6 +162,17 @@ def make_lora_replace(model, depth=1, path="", verbose=True):
             if layer is not None:
                 setattr(model, key, layer)
 
+def add_lora_layers(model):
+    for name, module in model.named_modules():
+        if isinstance(module, nn.Linear) and "layer" in name and not isinstance(model, lora_custom.Linear):
+            new_layer = make_lora_layer(model)
+            parent_name, child_name = name.rsplit('.', 1)
+            parent_module = dict(model.named_modules())[parent_name]
+            
+            # Replace the old layer with the new LoRA layer
+            setattr(parent_module, child_name, new_layer)
+    return model
+
 def main():
     # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
