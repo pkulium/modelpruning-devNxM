@@ -73,7 +73,7 @@ class NxMProjection_Lora(ADMMFCLProjection_Lora):
 
     def project(self) -> None:
         with torch.no_grad():
-            values = self._module.weight.data + self._module.lora_A.weight.data + self._module.lora_.weight.data + self._u
+            values = self._module.weight.data + self._module.lora_A.data + self._module.lora_.data + self._u
             scores = values.abs()
 
             mask = maskNxM(scores, self._n, self._m)
