@@ -121,7 +121,7 @@ class ADMMFCLProjection(ADMMProjection):
 
     @abstractmethod
     def __init__(self, model: torch.nn.Module, targeted_module: str, compression_args: Dict) -> None:
-        super(ADMMFCLProjection, self).__init__(model, targeted_module, compression_args)
+        super(ADMMFCLProjection_Lora, self).__init__(model, targeted_module, compression_args)
 
         self._cached_weight = self._module.weight.data.detach().cpu()
         # The _like calls are more readable for now, but if/when we move to mixed precision
