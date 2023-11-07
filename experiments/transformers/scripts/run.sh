@@ -53,8 +53,10 @@ TASK_NAMES=("rte")
 EXPERIMENT_NAME="nxm_bert"
 DEVICE=0
 BATCH_SIZE="32"
-LEARNING_RATES=("4e-4" "8e-4" "1e-4" "4e-5" "8e-5" "1e-5")
-ADMM_RHOS=("1e-4" "1e-3" "1e-2" "1e-1")
+# LEARNING_RATES=("4e-4" "8e-4" "1e-4" "4e-5" "8e-5" "1e-5")
+LEARNING_RATES=("1e-4")
+# ADMM_RHOS=("1e-4" "1e-3" "1e-2" "1e-1")
+ADMM_RHOS=("4e-3" "8e-3" "1e-3" "1e-2" "4e-2" "8e-2" "1e-1" "4e-1" "8e-1")
 CONFIG="../configs/uniform_nxm_bert_lora.json"
 
 for TASK_NAME in ${TASK_NAMES[*]}
