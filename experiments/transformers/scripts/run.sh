@@ -84,6 +84,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
                 --logging_steps 2000 \
                 --admm_config ${CONFIG} \
                 --rho $ADMM_RHO \
+                --load_best_model_at_end \
                 --overwrite_output_dir \
                 --output_dir ./output_lora/$EXPERIMENT_NAME/$TASK_NAME/${LEARNING_RATE}_${ADMM_RHO}_${BATCH_SIZE}/
         done

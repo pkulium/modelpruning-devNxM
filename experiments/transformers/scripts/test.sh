@@ -75,6 +75,7 @@ for TASK_NAME in ${TASK_NAMES[*]}
                 --save_steps 100000 \
                 --logging_steps 2000 \
                 --admm_config ${CONFIG} \
+                --load_best_model_at_end \
                 --rho $ADMM_RHO \
                 --overwrite_output_dir \
                 --output_dir ./output/$EXPERIMENT_NAME/$TASK_NAME/${LEARNING_RATE}_${ADMM_RHO}_${BATCH_SIZE}/
