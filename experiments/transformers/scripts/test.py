@@ -40,6 +40,7 @@ A_list = []
 l_list = []
 u_list = []
 
+
 # Add bounds on s
 for i in range(n):
     row = sp.lil_matrix((1, n))
@@ -54,9 +55,10 @@ l = np.array(l_list)
 u = np.array(u_list)
 
 # Define integer constraints (no integer variables for now)
-i_idx = np.array([], dtype=np.int)
+i_idx = np.array([], dtype=np.int_)
 i_l = np.array([], dtype=np.float64)
 i_u = np.array([], dtype=np.float64)
+
 
 # Setup MIOSQP problem
 model = miosqp.MIOSQP()
