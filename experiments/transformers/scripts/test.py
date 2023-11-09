@@ -32,7 +32,7 @@ sparsity = 2  # Number of zeros in each block
 z = np.random.randn(n)
 
 # Define P and q for the objective function
-P = sp.eye(n)
+P = sp.eye(n).tocsc()  # Convert to csc format for miosqp
 q = -z
 
 # Define A, l, u for the constraints
@@ -40,32 +40,23 @@ A_list = []
 l_list = []
 u_list = []
 
-# Convert the identity matrix to a lil_matrix format for subscripting
-I = sp.eye(n).tolil()
-
 # Add bounds on s
 for i in range(n):
-    A_list.append(I[i, :])
+    row = sp.lil_matrix((1, n))
+    row[0, i] = 1
+    A_list.append(row)
     l_list.append(0)
     u_list.append(1)
-    
-# Add 2:4 sparsity constraints
-for i in range(0, n, m):
-    row = np.zeros(n)
-    row[i:i+m] = 1
-    A_list.append(row)
-    l_list.append(m - sparsity)
-    u_list.append(m - sparsity)
 
 # Convert lists to sparse matrices
-A = sp.vstack(A_list)
+A = sp.vstack(A_list).tocsc()  # Convert to csc format for miosqp
 l = np.array(l_list)
 u = np.array(u_list)
 
-# Define integer constraints (here we assume all variables are continuous for now)
-i_idx = []
-i_l = []
-i_u = []
+# Define integer constraints (no integer variables for now)
+i_idx = np.array([], dtype=np.int)
+i_l = np.array([], dtype=np.float64)
+i_u = np.array([], dtype=np.float64)
 
 # Setup MIOSQP problem
 model = miosqp.MIOSQP()
