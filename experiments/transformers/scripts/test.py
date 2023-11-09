@@ -40,12 +40,15 @@ A_list = []
 l_list = []
 u_list = []
 
+# Convert the identity matrix to a lil_matrix format for subscripting
+I = sp.eye(n).tolil()
+
 # Add bounds on s
 for i in range(n):
-    A_list.append(sp.eye(n)[i, :])
+    A_list.append(I[i, :])
     l_list.append(0)
     u_list.append(1)
-
+    
 # Add 2:4 sparsity constraints
 for i in range(0, n, m):
     row = np.zeros(n)
